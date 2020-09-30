@@ -1,0 +1,26 @@
+{
+  "name": "spell-check",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node /app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faizcoder123/spellcheck.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faizcoder123/spellcheck/issues"
+  },
+  "homepage": "https://github.com/faizcoder123/spellcheck#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "hbs": "^4.1.1",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
+  }
+}
