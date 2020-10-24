@@ -7,29 +7,44 @@
         check Spelling
     </title>
     <style>
+      body{
+        background-color: #272727;
+      }
       textarea {
        resize: none;
       }
       #btn1{
          font-size: 19px;
          cursor: pointer;
-         color: black;
-         background-color: lightblue;
+         color: #FFE400;
+         background-color: #272727;
+         border-radius: 50px;
+         border:  1px solid #FFE400;
+      }
+      p {
+           color: #14A76C
       }
     </style>
 </head>
 
 <body style="text-align:center">
 
-    <h1 style="color:green;">
+    <h1 style="color: #FFE400;;">
             Check Spelling
     </h1>
+    <form action="/spellcheck" method="post">
 
-
-    <textarea rows="10" cols="100" placeholder="Type..." id="mytext" value=""></textarea>
+    <textarea rows="10" cols="100" placeholder="Type..." name="mytext" value=""></textarea>
      <br>
      <br>
-    <button type="button"  id="btn1">Check Spelling</button>
+    <button type="submit"  id="btn1">Check Spelling</button>
+    <br>
+    <br>
+    </form>
+    
+    <p>
+    {{ans}}
+    </p>
 
     <script src="js/dict.js"></script>
 </body>

@@ -60,24 +60,25 @@ const getEditDist = (a, b) => {
         return dp[b.length][a.length];
 
     }
-
+var ret = '';
 app.get('/',function(req,res) {
-  res.render('dict',{});
+
+  res.render('dict',{ans: ret});
+  ret = ''
 
 });
 
 
-app.get('/spellcheck',async (req,res) => {
+app.post('/spellcheck',async (req,res) => {
     try{
     //  console.log("check");
-      var txt = req.query.text;
+      var txt = req.body.mytext;
 
       var arr = txt.split(' ')
 
-
       // split the contents by new line
-       var big_ans="";
-       for(var i = 0; i < arr.length; i++){
+        var big_ans="";
+        for(var i = 0; i < arr.length; i++){
         const data = fs.readFileSync('book.txt', 'UTF-8');
         const lines = data.split(/\r?\n/);
         var min = Number.MAX_SAFE_INTEGER;
@@ -91,15 +92,14 @@ app.get('/spellcheck',async (req,res) => {
                  str = line;
                 }
                })
-            big_ans  = big_ans + " " + str;
+               big_ans  = big_ans + " " + str;
            }
-          res.send({
-            text:big_ans
-          })
+           ret = big_ans;
+          res.redirect('/');
     }
   catch(err){
         res.send({
-          error:err
+          error: err
         })
   }
 
